@@ -1,10 +1,12 @@
 #include <ESP8266WiFi.h>
+#include <ESP8266HTTPClient.h>
+#include <WiFiClient.h>
 
 // initialise wifi password and name
-const char* wiFiPassword = "your wifi password";
-const char* wiFiName = "your wifi name";
-const char* hostedAPIServer = "127.0.0.1";
-const int hostedAPIServerport = 8080;
+const char* wiFiPassword = "zy8sytkrngp3udpb";
+const char* wiFiName = "Telstra39AD47";
+const char* hostedAPIServer = "http://192.168.0.192:";
+const String hostedAPIServerport = "8080";
 
 void APIScrape();
 
@@ -31,12 +33,12 @@ void setup() {
 
 void loop() {
   for(int i = 0; i < 2; i++) {
-    APIScrape();
+    APIScrape(hostedAPIServer, hostedAPIServerport);
   }
 }
 
 
-void APIScrape(url, port) {
+void APIScrape(String url, String port) {
   // checks if WiFi is still connected
   if(WiFi.status() == WL_CONNECTED) {
     // create objects under WiFiClient and HTTPClient
@@ -44,7 +46,8 @@ void APIScrape(url, port) {
     HTTPClient http;
 
     // concatenate API HTTP server and port together
-    String APIPath = hostedAPIServer + to_str(hostedAPIServerport);
+    String APIPath = hostedAPIServer + hostedAPIServerport;
+    Serial.println(APIPath);
 
     // connect to the API HTTP server
     http.begin(client, APIPath.c_str());
@@ -69,7 +72,7 @@ void APIScrape(url, port) {
     }
 
     // close HTTP connection
-    http.end()
+    http.end();
   }
 
   // if WiFi has been disconnected, print out that it has
