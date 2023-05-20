@@ -3,8 +3,8 @@
 #include <WiFiClient.h>
 
 // initialise wifi password and name
-const char* wiFiPassword = "zy8sytkrngp3udpb";
-const char* wiFiName = "Telstra39AD47";
+const char* wiFiPassword = "your wifi password";
+const char* wiFiName = "your wifi name";
 const char* hostedAPIServer = "http://192.168.0.192:";
 const String hostedAPIServerport = "8080";
 
