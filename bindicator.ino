@@ -52,8 +52,9 @@ void APIScrape(String url, String port) {
     // connect to the API HTTP server
     http.begin(client, APIPath.c_str());
 
-    // send HTTP GET request
+    // send HTTP GET request and wait 15 seconds for everything to work on the back end
     int HTTPRequest = http.GET();
+    sleep(15000);
 
     // if the GET request has gone through, print out if it was successful and what was gathered from it
     if (HTTPRequest > 0) {
