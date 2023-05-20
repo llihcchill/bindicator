@@ -36,18 +36,10 @@ def scrape(url, address):
     get_date(gw_split, re_split)
 
 def get_date(garbage_split_text, recycling_split_text):
-    # makes sure to edit the global bin_dict variable for it to show up in the output of the API
-    global bin_dict
+    # makes sure to edit the global bin_output variable for it to show up in the output of the API
+    global bin_output
     # this function checks against the supplied split text to see if their dates line up
     if garbage_split_text[7] == recycling_split_text[6]:
-        bin_dict = [
-            {
-            "bins_out": "2"
-            }
-        ]
+        bin_output = 2
     else:
-        bin_dict = [
-            {
-            "bins_out": "1"
-            }
-        ]
+        bin_output = 1
