@@ -40,6 +40,6 @@ def get_date(garbage_split_text, recycling_split_text):
     global bin_output
     # this function checks against the supplied split text to see if their dates line up
     if garbage_split_text[7] == recycling_split_text[6]:
-        bin_output = 2
+        bin_output = "2"
     else:
-        bin_output = 1
+        bin_output = "1"
