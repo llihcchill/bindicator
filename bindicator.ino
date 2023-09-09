@@ -7,6 +7,8 @@ const char* wiFiPassword = "your wifi password";
 const char* wiFiName = "your wifi name";
 const char* hostedAPIServer = "http://192.168.0.192:";
 const String hostedAPIServerport = "8080";
+
+// GPIO pin variables
 const int yellowGPIOPin = 2;
 const int middleRedGPIOPin = 4;
 const int bottomRedGPIOPin = 5;
